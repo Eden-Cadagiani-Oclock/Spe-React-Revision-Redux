@@ -1,21 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useSelector, useDispatch } from 'react-redux';
 import FormUser from 'src/components/FormUser/FormUser';
+import { actionUpdateFormUserValue, actionSubmitFormUser } from 'src/actions/formUserActions';
 
 const FormUserContainer = (props) => {
-  const firstName = '';
-  const lastName = '';
-  const email = '';
-  const password = '';
-  const repeatPassword = '';
+  const dispatch = useDispatch();
+  const firstName = useSelector((state) => state.formUser.firstName);
+  const lastName = useSelector((state) => state.formUser.lastName);
+  const email = useSelector((state) => state.formUser.email);
+  const password = useSelector((state) => state.formUser.password);
+  const repeatPassword = useSelector((state) => state.formUser.repeatPassword);
 
   const handleValueChange = (inputName, value) => {
-    // todo
     console.log({ inputName, value });
+    dispatch(actionUpdateFormUserValue(inputName, value));
   };
 
   const handleSubmit = () => {
-    // todo
+    dispatch(actionSubmitFormUser());
   };
 
   return (
