@@ -21,6 +21,7 @@ const FormUser = ({
   email,
   password,
   repeatPassword,
+  passwordError,
   onValueChange,
   onSubmit,
   className,
@@ -81,6 +82,7 @@ const FormUser = ({
             <TextField
               fullWidth
               required
+              error={passwordError}
               type={passwordVisibility ? 'text' : 'password'}
               label="password"
               value={password}
@@ -103,6 +105,7 @@ const FormUser = ({
             <TextField
               fullWidth
               required
+              error={passwordError}
               type={rpPasswordVisibility ? 'text' : 'password'}
               label="repeat password"
               value={repeatPassword}
@@ -144,6 +147,7 @@ FormUser.propTypes = {
   onValueChange: PropTypes.func.isRequired,
   onSubmit: PropTypes.func.isRequired,
   className: PropTypes.string,
+  passwordError: PropTypes.bool.isRequired,
 };
 FormUser.defaultProps = {
   className: '',

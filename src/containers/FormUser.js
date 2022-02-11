@@ -11,6 +11,7 @@ const FormUserContainer = (props) => {
   const email = useSelector((state) => state.formUser.email);
   const password = useSelector((state) => state.formUser.password);
   const repeatPassword = useSelector((state) => state.formUser.repeatPassword);
+  const passwordError = useSelector((state) => state.formUser.passwordError);
 
   const handleValueChange = (inputName, value) => {
     console.log({ inputName, value });
@@ -30,6 +31,7 @@ const FormUserContainer = (props) => {
       repeatPassword={repeatPassword}
       onValueChange={handleValueChange}
       onSubmit={handleSubmit}
+      passwordError={passwordError}
     />
   );
 };

@@ -1,4 +1,4 @@
-import { UPDATE_FORM_USER_VALUE } from 'src/actions/formUserActions';
+import { UPDATE_FORM_USER_VALUE, SET_PASSWORD_ERROR } from 'src/actions/formUserActions';
 
 export const initialState = {
   firstName: '',
@@ -6,6 +6,7 @@ export const initialState = {
   email: '',
   password: '',
   repeatPassword: '',
+  passwordError: false,
 };
 
 function reducer(state = initialState, action = {}) {
@@ -14,6 +15,11 @@ function reducer(state = initialState, action = {}) {
       return {
         ...state,
         [action.payload.inputName]: action.payload.value,
+      };
+    case SET_PASSWORD_ERROR:
+      return {
+        ...state,
+        passwordError: action.payload,
       };
     default:
       return state;
